@@ -11,157 +11,8 @@
     <h1>JavaScript</h1>
     <!-- js一般放在body區最後面，或獨立js folder <=> css一般方在head區，或獨立css folder  -->
     <script>
-        // let x = 10;
-        // let y = 20;
-        // let z = x + y;
-        // // print()->工程師看
-        // console.log(x + y);
-        // //print()->網頁輸出
-        // document.write("<h2>" + "x + y = " + z + "</h2>");
 
-        // // 常數(約定俗成):const 大寫
-        // const PI = 3.14;
-        // let redius = 10;
-
-        // let area = (redius ** 2) * PI;
-        // console.log(area);
-
-        // js可以數字+(串接)=>以str為主
-        // let result = "area is: " + area;
-        // console.log(result, typeof (result), typeof (x));
-
-        // /** JS:長註解:ctrl+/(快捷鍵)*/
-        // // input()
-        // let slogan = prompt("請輸入要說的話:");
-
-        // // alert 警告
-        // alert(slogan);
-
-
-        // BMI計算:雖然不轉換也可以算，但是轉換會比較好
-        // let height = prompt("請輸入身高:");
-        // height = parseFloat(height);
-
-        // let weight = prompt("請輸入體重:");
-        // weight = parseFloat(weight);
-
-        // let bmi = weight / (height / 100) ** 2;
-        // let result_bmi = "<ol type='a'>";
-        // result_bmi += "<li>" + "身高:" + height + "</li>";
-        // result_bmi += "<li>" + "體重:" + weight + "</li>";
-        // // toFix(2)->四捨五入:位數
-        // result_bmi += "<li>" + "BMI:" + bmi.toFixed(1) + "</li>";
-        // result_bmi += "</ol>";
-        // document.write(result_bmi);
-
-        // 取str長度
-        // let email = "125634@com.tw";
-        // console.log(email.length, email[email.length - 1]);
-
-        // for迴圈
-        /** for i in range(len(email)):
-         print(i,email[i]) */
-
-        // for (let i = 0; i < email.length; i++) {
-        //     console.log(i, email[i]);
-        // }
-
-
-
-        // i++(後置運算，常用):先印後加    ++i(前置運算，常用):先加後印
-        // let a = 10;
-        // console.log("後置運算:a++=" + a++);
-        // let b = 10;
-        // console.log("前置運算:++b=" + ++b);
-
-        // let c = 10;
-        // let d = c++;
-        // console.log(d, c);
-        // d -= 10;
-        // console.log(d);
-
-        // let count = 0
-        // for (let j = 0; j < 10; j++) {
-        //     console.log(count++);
-        // }
-
-
-
-        // // 比對
-        // console.log(10 == "10", 120 === "120");
-        // console.log(Boolean(100));
-        // console.log(true === 100);
-
-        // // 判斷式
-        // let math = 100;
-        // let eng = 60;
-        // let ch = 40;
-
-        // if ((eng >= 60 || ch >= 60) && math >= 60) {
-        //     console.log("pass!");
-        // } else {
-        //     console.log("fail...");
-        // }
-
-        // console.log(email.split("@"));
-        // console.log(email.trim());
-
-
-        //求亂數1-10
-        // 0-1浮點數亂數
-
-
-        // for (let i = 0; i < 10; i++) {
-        //     let r = Math.random();
-        //     console.log(r);
-        //     console.log(Math.floor(r * 10) + 1);
-        //     console.log(Math.ceil(r * 10));
-
-        //     console.log(Math.round(r * 10));
-        // }
-
-        // // 求亂數1 - 49
-        // for (let i = 0; i < 10; i++) {
-        //     let r = Math.random();
-        //     // *終止值  +起始值
-        //     console.log(Math.floor(r * 49) + 1);
-        // }
-
-        // while (true) {
-        //     // *終止值  +起始值
-        //     let r = Math.floor(Math.random() * 49 + 1);
-        //     console.log(r);
-        //     if (r == 49) {
-        //         break;
-        //     }
-
-        // }
-
-
-
-        // ans = getRandomInt(1, 49, 10)
-        // console.log(ans);
-
-
-        // while (true) {
-        //     let r = Math.floor(Math.random() * 49) + 1;
-        //     console.log(r);
-        //     if (r == 49) {
-        //         break;
-        //     }
-        // }
-        //猜數1-49 函式化
-        // start = parseInt(prompt("請輸入起始值:"))
-        // end = parseInt(prompt("請輸入終止值:"))
-        // count = parseInt(prompt("請輸入要抽幾組數字:"))
-        // for (let i = 0; i < count; i++) {
-        //     let x = getRandomInt(start, end)
-        //     console.log(x);
-        //     document.write(`<h1>第 ${(i + 1)} 個號碼:${x} </h1>`);
-
-
-        // }
-
+        document.write(Date());
 
         function getRandomInt(start, end) {
             let r = Math.floor(Math.random() * end) + start;
@@ -169,7 +20,7 @@
 
         }
 
-        // 六組號碼
+        // 10組號碼
 
         start = parseInt(prompt("請輸入起始值:"))
         end = parseInt(prompt("請輸入終止值:"))
@@ -178,21 +29,44 @@
         let nums = [];
         for (let j = 0; j < count; j++) {
             let num = [];
-            for (let i = 0; i < 6; i++) {
-                let x = getRandomInt(start, end)
-                // console.log(x);
-                num.push(x);
-            }
-            nums.push(num)
 
-            document.write(`<h1>第${j + 1}組，號碼:${num} </h1>`)
+            while (true) {
+                let x = getRandomInt(start, end)
+                if (!num.includes(x)) {
+                    num.push(x);
+                }
+
+                if (num.length == 6) {
+                    break;
+                }
+
+            }
+            // 做排序
+            num.sort(compare);
+            nums.push(num);
+            document.write(`<h1>第${j + 1}組，號碼:${num} </h1>`);
 
         }
         console.log(nums);
+        // 升序
+        function compare(a, b) {
+            return a - b;
+        }
 
+
+        /** for i in range(len(nums)):
+         * print(nums[i])
+        */
+        // for (let i = 0; i < nums.length; i++) {
+        //     console.log(nums[i].join(","));
+        //     document.write(`<h1>第${i + 1}組，號碼:${nums[i].join(",")} </h1>`);
+
+        // }
 
 
     </script>
+
+
 </body>
 
 </html>
