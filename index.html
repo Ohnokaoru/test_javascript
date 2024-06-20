@@ -5,68 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
 </head>
 
 <body>
     <h1>JavaScript</h1>
+    <h2>時間</h2>
     <!-- js一般放在body區最後面，或獨立js folder <=> css一般方在head區，或獨立css folder  -->
-    <script>
-
-        document.write(Date());
-
-        function getRandomInt(start, end) {
-            let r = Math.floor(Math.random() * end) + start;
-            return r;
-
-        }
-
-        // 10組號碼
-
-        start = parseInt(prompt("請輸入起始值:"))
-        end = parseInt(prompt("請輸入終止值:"))
-        count = parseInt(prompt("請輸入要抽幾組數字:"))
-
-        let nums = [];
-        for (let j = 0; j < count; j++) {
-            let num = [];
-
-            while (true) {
-                let x = getRandomInt(start, end)
-                if (!num.includes(x)) {
-                    num.push(x);
-                }
-
-                if (num.length == 6) {
-                    break;
-                }
-
-            }
-            // 做排序
-            num.sort(compare);
-            nums.push(num);
-            document.write(`<h1>第${j + 1}組，號碼:${num} </h1>`);
-
-        }
-        console.log(nums);
-        // 升序
-        function compare(a, b) {
-            return a - b;
-        }
 
 
-        /** for i in range(len(nums)):
-         * print(nums[i])
-        */
-        // for (let i = 0; i < nums.length; i++) {
-        //     console.log(nums[i].join(","));
-        //     document.write(`<h1>第${i + 1}組，號碼:${nums[i].join(",")} </h1>`);
+    <button>開獎</button>
+    <div id="lottroy">
+        123
+    </div>
 
-        // }
+    <!-- ./temp.js的框架 -->
+    <div id="test">
+        try
+    </div>
 
-
-    </script>
-
-
+    <!-- 外部引用 key入sc後，選script src :要放在body最後，預防只加載有誤-->
+    <script src="./index.js"></script>
+    <script src="./lottroy_step.js"></script>
 </body>
 
 </html>
